@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import subprocess
+import time
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -27,13 +28,19 @@ def power():
 
 @app.route("/api/tv/volumeup")
 def volumeup():
-    subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_VOLUMEUP','KEY_VOLUMEUP','KEY_VOLUMEUP','KEY_VOLUMEUP','KEY_VOLUMEUP'])
+    for index in range(5):
+        time.sleep(0.5)
+        subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_VOLUMEUP'])
+    #subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_VOLUMEUP','KEY_VOLUMEUP','KEY_VOLUMEUP','KEY_VOLUMEUP','KEY_VOLUMEUP'])
     return "volumeup!"
 
 
 @app.route("/api/tv/volumedown")
 def volumedown():
-    subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN'])
+    for index in range(5):
+        time.sleep(0.5)
+        subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_VOLUMEDOWN'])
+    #subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN'])
     return "volumedown!"
 
 
