@@ -5,8 +5,8 @@ After=network.target
 [Service]
 ExecStart=/home/pi/PythonTV/main.py
 Restart=always
-User=root
-Group=root
+User=pi
+Group=pi
 Environment=PATH=/usr/bin:/usr/local/bin
 Environment=
 WorkingDirectory=/home/pi/PythonTV
