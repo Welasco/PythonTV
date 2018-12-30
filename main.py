@@ -20,34 +20,16 @@ def tv():
     return "TV!"
 
 
-@app.route("/api/tv/power")
-def power():
-    subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_POWER'])
-    return "Power!"
-
-
-@app.route("/api/tv/volumeup")
-def volumeup():
-    for index in range(5):
-        time.sleep(0.5)
-        subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_VOLUMEUP'])
-    #subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_VOLUMEUP','KEY_VOLUMEUP','KEY_VOLUMEUP','KEY_VOLUMEUP','KEY_VOLUMEUP'])
-    return "volumeup!"
-
-
-@app.route("/api/tv/volumedown")
-def volumedown():
-    for index in range(5):
-        time.sleep(0.5)
-        subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_VOLUMEDOWN'])
-    #subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN','KEY_VOLUMEDOWN'])
-    return "volumedown!"
-
-
-@app.route("/api/tv/mute")
-def mute():
-    subprocess.call(['irsend','SEND_ONCE','livingroomtv','KEY_MUTE'])
-    return "mute!"
+@app.route('/api/tv/command/<cmd>')
+def command(cmd):
+    strcmd = 'KEY_' + cmd.upper()
+    if 'VOLUME' in strcmd:
+        for index in range(5):
+            time.sleep(0.5)
+            subprocess.call(['irsend','SEND_ONCE','livingroomtv',strcmd])          
+    else:
+        subprocess.call(['irsend','SEND_ONCE','livingroomtv',strcmd])
+    return strcmd
 
 
 if __name__ == "__main__":
