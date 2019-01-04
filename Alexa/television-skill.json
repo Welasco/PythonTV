@@ -32,7 +32,23 @@
                     ]
                 },
                 {
-                    "name": "channel",
+                    "name": "channelup",
+                    "slots": [],
+                    "samples": [
+                        "change channel up",
+                        "channel up"
+                    ]
+                },
+                {
+                    "name": "channeldown",
+                    "slots": [],
+                    "samples": [
+                        "change channel down",
+                        "channel down"
+                    ]
+                },                
+                {
+                    "name": "channelincreaseby",
                     "slots": [
                         {
                             "name": "number",
@@ -40,19 +56,59 @@
                         }
                     ],
                     "samples": [
-                        "change channel up",
-                        "change channel down",
                         "increase channel by {number}",
-                        "decrease channel by {number}",
-                        "decrease the channel by {number}",
+                        "increase channel to {number}",
                         "increase the channel by {number}",
-                        "change channel to {number}",
-                        "channel down",
-                        "channel up"
+                        "increase the channel to {number}"
                     ]
-                },
+                },   
                 {
-                    "name": "volume",
+                    "name": "channeldecreaseby",
+                    "slots": [
+                        {
+                            "name": "number",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "decrease channel by {number}",
+                        "decrease channel to {number}",                        
+                        "decrease the channel by {number}",
+                        "decrease the channel to {number}"
+                    ]
+                },                   
+                {
+                    "name": "channelto",
+                    "slots": [
+                        {
+                            "name": "number",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "change to {number}",
+                        "change channel to {number}"
+                    ]
+                },   
+                {
+                    "name": "volumeupby",
+                    "slots": [
+                        {
+                            "name": "number",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "volume up to {number}",
+                        "volume up by {number}",
+                        "increase volume to {number}",
+                        "increase volume by {number}",
+                        "increase the volume by {number}",
+                        "increase the volume to {number}"
+                    ]
+                },                                           
+                {
+                    "name": "volumedownby",
                     "slots": [
                         {
                             "name": "number",
@@ -61,19 +117,30 @@
                     ],
                     "samples": [
                         "volume down to {number}",
-                        "volume up to {number}",
-                        "decrease volume to {number}",
-                        "increase volume to {number}",
-                        "increase volume by {number}",
-                        "decrease volume by {number}",
                         "volume down by {number}",
+                        "decrease volume to {number}",
+                        "decrease volume by {number}",
                         "decrease the volume by {number}",
-                        "increase the volume by {number}",
-                        "volume up by {number}",
-                        "volume down",
-                        "volume up"
+                        "decrease the volume to {number}"
                     ]
                 },
+                {
+                    "name": "volumedown",
+                    "slots": [],
+                    "samples": [
+                        "volume down",
+                        "to volume down",
+                        "put volume down"
+                    ]
+                },      
+                {
+                    "name": "volumeup",
+                    "slots": [],
+                    "samples": [
+                        "volume up",
+                        "to volume up"
+                    ]
+                },                           
                 {
                     "name": "power",
                     "slots": [],
@@ -85,14 +152,12 @@
                         "power on",
                         "shutdown",
                         "turn on",
-                        "turn off"
-                    ]
-                },
-                {
-                    "name": "GeneralGreeting",
-                    "slots": [],
-                    "samples": [
-                        "hello"
+                        "turn off",
+                        "to power off",
+                        "to power on",
+                        "to shutdown",
+                        "to turn on",
+                        "to turn off"                        
                     ]
                 }
             ],
