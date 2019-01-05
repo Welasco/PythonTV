@@ -32,41 +32,19 @@
                     ]
                 },
                 {
-                    "name": "volumeupby",
-                    "slots": [
-                        {
-                            "name": "number",
-                            "type": "AMAZON.NUMBER"
-                        }
-                    ],
-                    "samples": [
-                        "increase volume by {number}"
-                    ]
-                },
-                {
-                    "name": "volumedownby",
-                    "slots": [
-                        {
-                            "name": "number",
-                            "type": "AMAZON.NUMBER"
-                        }
-                    ],
-                    "samples": [
-                        "decrease volume by {number}"
-                    ]
-                },
-                {
-                    "name": "volumedown",
+                    "name": "channelup",
                     "slots": [],
                     "samples": [
-                        "volume down"
+                        "change channel up",
+                        "channel up"
                     ]
                 },
                 {
-                    "name": "volumeup",
+                    "name": "channeldown",
                     "slots": [],
                     "samples": [
-                        "volume up"
+                        "change channel down",
+                        "channel down"
                     ]
                 },
                 {
@@ -78,7 +56,10 @@
                         }
                     ],
                     "samples": [
-                        "increase channel by {number}"
+                        "increase channel by {number}",
+                        "increase channel to {number}",
+                        "increase the channel by {number}",
+                        "increase the channel to {number}"
                     ]
                 },
                 {
@@ -90,35 +71,10 @@
                         }
                     ],
                     "samples": [
-                        "decrease channel by {number}"
-                    ]
-                },
-                {
-                    "name": "channelup",
-                    "slots": [],
-                    "samples": [
-                        "channel up"
-                    ]
-                },
-                {
-                    "name": "channeldown",
-                    "slots": [],
-                    "samples": [
-                        "channel down"
-                    ]
-                },
-                {
-                    "name": "power",
-                    "slots": [],
-                    "samples": [
-                        "off",
-                        "on",
-                        "power off",
-                        "power on",
-                        "shutdown",
-                        "power down",
-                        "turn off",
-                        "turn on"
+                        "decrease channel by {number}",
+                        "decrease channel to {number}",
+                        "decrease the channel by {number}",
+                        "decrease the channel to {number}"
                     ]
                 },
                 {
@@ -130,7 +86,78 @@
                         }
                     ],
                     "samples": [
-                        "change {number}"
+                        "change to {number}",
+                        "change channel to {number}"
+                    ]
+                },
+                {
+                    "name": "volumeupby",
+                    "slots": [
+                        {
+                            "name": "number",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "volume up to {number}",
+                        "volume up by {number}",
+                        "increase volume to {number}",
+                        "increase volume by {number}",
+                        "increase the volume by {number}",
+                        "increase the volume to {number}"
+                    ]
+                },
+                {
+                    "name": "volumedownby",
+                    "slots": [
+                        {
+                            "name": "number",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "volume down to {number}",
+                        "volume down by {number}",
+                        "decrease volume to {number}",
+                        "decrease volume by {number}",
+                        "decrease the volume by {number}",
+                        "decrease the volume to {number}"
+                    ]
+                },
+                {
+                    "name": "volumedown",
+                    "slots": [],
+                    "samples": [
+                        "volume down",
+                        "to volume down",
+                        "put volume down"
+                    ]
+                },
+                {
+                    "name": "volumeup",
+                    "slots": [],
+                    "samples": [
+                        "volume up",
+                        "to volume up"
+                    ]
+                },
+                {
+                    "name": "power",
+                    "slots": [],
+                    "samples": [
+                        "off",
+                        "on",
+                        "power off",
+                        "power",
+                        "power on",
+                        "shutdown",
+                        "turn on",
+                        "turn off",
+                        "to power off",
+                        "to power on",
+                        "to shutdown",
+                        "to turn on",
+                        "to turn off"
                     ]
                 }
             ],

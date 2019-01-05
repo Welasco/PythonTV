@@ -1,5 +1,3 @@
-import json
-from AlexaClass import AlexaRequest
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
@@ -16,10 +14,14 @@ def tv():
 
 @app.route('/alexa/television', methods=['POST'])
 def television():
-    #print(request.headers)
-    #print(request.get_json())
-    Alexa = AlexaRequest()
-    msg = Alexa.handler(request)
+    #content = request.json
+    print(request.headers)
+    #print(request.get_json(silent=False))
+    #print(request.get_json(force=True))
+    print(request.get_json())
+    #print(request.data)
+    #r = "{\"test\": \"test\"}"
+    #r = r'{"test": "test"}'
     r = '''
     {
           "version": "1.0",
@@ -50,7 +52,7 @@ def television():
           }
     }
     '''
-    return msg
+    return r
 
 
 if __name__ == "__main__":
