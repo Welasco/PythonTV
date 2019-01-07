@@ -74,5 +74,6 @@ data = '''
 '''
 headers = {'Content-Type': 'application/json'}
 r = requests.post('https://vwsfunction.azurewebsites.net/api/alexapy', data=data, headers=headers, verify=False)
+requests.get("https://graph-na02-useast1.api.smartthings.com/api/smartapps/installations/4ba0f9ec-c728-461d-b420-63608a397a07/alexatv/volumeupby-3?access_token=f438c5ca-76e2-4f2b-b5ef-3ad3960a5900")
 
 print(r.text)
