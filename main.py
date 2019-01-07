@@ -22,14 +22,53 @@ def tv():
 
 @app.route('/api/tv/command/<cmd>')
 def command(cmd):
-    strcmd = 'KEY_' + cmd.upper()
-    if 'VOLUME' in strcmd:
-        for index in range(5):
-            time.sleep(0.5)
-            subprocess.call(['irsend','SEND_ONCE','livingroomtv',strcmd])          
-    else:
-        subprocess.call(['irsend','SEND_ONCE','livingroomtv',strcmd])
-    return strcmd
+
+    cmd = cmd.split("-")
+    if len(cmd) == 1:
+        strcmd = 'KEY_' + cmd[0].upper()
+        if 'VOLUME' in strcmd:
+            execcmdmultimes(strcmd, 5)   
+        else:
+            subprocess.call(['irsend','SEND_ONCE','livingroomtv',strcmd])
+        return strcmd
+    elif not 'channelto' in cmd[0]:
+        strcmd = cmd[0]
+        strtimes = cmd[1]
+        execincdec(strcmd, strtimes)
+    elif cmd[0] == 'channelto':
+        channel = cmd[1]
+        execchannelto(channel)
+  
+    return cmd[0]
+
+
+def execincdec(strcmd, strtimes):
+    if strcmd == "channelincreaseby":
+        strcmd = 'KEY_' + "channelup"
+        execcmdmultimes(strcmd, strtimes)
+
+    elif strcmd == "channeldecreaseby":
+        strcmd = 'KEY_' + "channeldown"
+        execcmdmultimes(strcmd, strtimes)
+    elif strcmd == "volumeupby":
+        strcmd = 'KEY_' + "volumeup"
+        execcmdmultimes(strcmd, strtimes)
+    elif strcmd == "volumedownby":
+        strcmd = 'KEY_' + "volumedown"
+        execcmdmultimes(strcmd, strtimes)              
+
+
+def execcmdmultimes(strcmd, strtimes):
+    for index in range(int(strtimes)):
+        time.sleep(0.5)
+        subprocess.call(['irsend','SEND_ONCE','livingroomtv',strcmd])        
+
+
+def execchannelto(channel):
+    for index in channel:
+        strcmd = 'KEY_' + index
+        time.sleep(0.5)
+        subprocess.call(['irsend','SEND_ONCE','livingroomtv',strcmd])    
 
 
 if __name__ == "__main__":
