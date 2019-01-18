@@ -128,23 +128,145 @@ def alexatvcommand() {
 def alexaskill() {
 
     // Production Code
-    
+    /*
     def alexarequestjson = request.JSON
     def alexaResponseBody = alexarequesthandler(alexarequestjson)
     log.debug("Alexa Response Body: $alexaResponseBody")
     def alexaresponsespeech = alexaResponseBody.response.outputSpeech.text
     log.debug("Alexa Response JSON outputSpeech Text: $alexaresponsespeech")
+    */
+
+    def responsetest = '''
+    {
+        "version": "1.0",
+        "sessionAttributes": {
+            "supportedHoroscopePeriods": {
+                "daily": true,
+                "weekly": false,
+                "monthly": false
+                }
+            },
+        "response": {
+            "outputSpeech": {
+                "type": "PlainText",
+                "text": "OK, Muting Television."
+            },
+            "card": {
+                "type": "Simple",
+                "title": "Television",
+                "content": "OK, Muting Television."
+            },
+            "reprompt": {
+                "outputSpeech": {
+                    "type": "PlainText",
+                    "text": "Can I help you with anything else?"
+                }
+            },
+            "shouldEndSession": true
+        }
+    }
+    '''
+
+    def testjson = new groovy.json.JsonOutput().toJson([
+        version: "1.0",
+        testaa: "aa"
+    ])
+    def testjsonstr = new groovy.json.JsonOutput().prettyPrint(testjson)
+    log.debug("Alexa Response RAW: $responsetest")
+    def jsonSlurpert = new JsonSlurper()
+    def alexajsont = null;
+    alexajsont = jsonSlurpert.parseText(testjson)
+
+    // good alternative that didn't ordered
+    def bjson = new JsonBuilder()
+    // JSON Working
+    //def rjson = bjson version: "1.0", testaa: "aa"
+    /*
+    def rjson = bjson{
+        version "1.0"
+        testaa "aa"
+    }
+    */
     
- 
+    // test
+    /*
+    def responsetestjson = bjson{
+        version "1.0"
+        sessionAttributes (
+            supportedHoroscopePeriods (
+                daily true
+                weekly false
+                monthly false
+            )
+        )
+        response (
+            outputSpeech (
+                type "PlainText"
+                text "OK, Muting Television."
+            )
+            card (
+                type "Simple"
+                title "Television"
+                content "OK, Muting Television."
+            )
+            reprompt (
+                outputSpeech (
+                    type "PlainText"
+                    text "Can I help you with anything else?"
+                )
+            )
+            shouldEndSession true
+        )        
+    }
+    */
+
+    // Test Working
+    /*
+    def responsetestjson = bjson {
+               firstName 'Guillame'
+               lastName 'Laforge'
+               // Named arguments are valid values for objects too
+               address(
+                       city: 'Paris',
+                       country: 'France',
+                       zip: 12345,
+               )
+               married true
+               // a list of values
+               conferences 'JavaOne', 'Gr8conf'
+    }      
+    */
+    def responsetestjson = bjson {
+        version "1.0"
+        sessionAttributes (
+            supportedHoroscopePeriods (
+                daily: true,
+                weekly: false,
+                monthly: false,
+            )
+        )
+        response (
+            outputSpeech (
+                type: "PlainText",
+                text: "OK, Muting Television.",
+            ),
+            card (
+                type: "Simple",
+                title: "Television",
+                content: "OK, Muting Television.",
+            ),
+            reprompt (
+                outputSpeech (
+                    type: "PlainText",
+                    text: "Can I help you with anything else?",
+                )
+            ),
+            shouldEndSession: true
+        )        
+    }    
     //def rawjson = JsonOutput.toJson(responsetest)
     //log.debug("Alexa Response RAW JSON: $responsetest")
-    //return [data: alexaResponseBody, status: 200]
-    //render contentType: 'text/html', data: "status received...ok", status: 200
-    //render contentType: 'application/json', data: alexaResponseBody, status: 200
-    
-    def resultJson = new groovy.json.JsonOutput().toJson(alexaResponseBody)
-    render contentType: 'application/json', data: resultJson, status: 200
-    //return alexaResponseBody
+    return responsetestjson
 }
 
 def alexarequesthandler(reqjson){
