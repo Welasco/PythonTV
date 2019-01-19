@@ -132,9 +132,77 @@
                     "samples": [
                         "change {number}"
                     ]
+                },
+                {
+                    "name": "pressbutton",
+                    "slots": [
+                        {
+                            "name": "button",
+                            "type": "button"
+                        }
+                    ],
+                    "samples": [
+                        "press {button}"
+                    ]
                 }
             ],
-            "types": []
+            "types": [
+                {
+                    "name": "button",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Power"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Left"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Right"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Down"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "UP"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Stop"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Exit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Return"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pause"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Play"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     }
 }

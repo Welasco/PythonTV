@@ -154,6 +154,7 @@ def alexarequesthandler(reqjson){
     def alexaresponsetest = alexaResponseMsg.response.outputSpeech.text
     log.debug("Alexa Response JSON outputSpeech Text: $alexaresponsetest")
     def number = null
+    def button = null
     switch(intent){
         case "mute":
             alexaResponseMsg.response.outputSpeech.text = "OK, Muting Television."
@@ -226,6 +227,12 @@ def alexarequesthandler(reqjson){
             tv.on()
             return alexaResponseMsg
             // return
+        case "pressbutton":
+            button = reqjson.request.intent.slots.button.value
+            alexaResponseMsg.response.outputSpeech.text = "OK, Pressing button $button"
+            alexaResponseMsg.response.card.content = "OK, Pressing button $button"
+            tv.pressbutton(button)
+            return alexaResponseMsg            
         case "AMAZON.FallbackIntent":
             alexaResponseMsg.response.outputSpeech.text = "Sorry, Television didn't recognized your command!"
             alexaResponseMsg.response.card.content = "Sorry, Television didn't recognized your command!"

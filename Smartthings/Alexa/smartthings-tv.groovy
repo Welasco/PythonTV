@@ -42,6 +42,7 @@ metadata {
         command "channelto"
         command "volumeupby"
         command "volumedownby"
+        command "pressbutton"
 	}
 
 	// simulator metadata
@@ -230,6 +231,14 @@ def volumeupby(String value)
 def volumedownby(String value)
 {
     return sendRaspberryCommand("volumedownby-$value")
+}
+
+
+// Pressing a button
+
+def pressbutton(String value)
+{
+    return sendRaspberryCommand(value)
 }
 
 
