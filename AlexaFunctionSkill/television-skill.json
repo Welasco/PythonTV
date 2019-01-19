@@ -152,6 +152,11 @@
                     "values": [
                         {
                             "name": {
+                                "value": "OK"
+                            }
+                        },
+                        {
+                            "name": {
                                 "value": "Power"
                             }
                         },
