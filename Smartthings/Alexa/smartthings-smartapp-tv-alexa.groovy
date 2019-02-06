@@ -232,7 +232,32 @@ def alexarequesthandler(reqjson){
             alexaResponseMsg.response.outputSpeech.text = "OK, Pressing button $button"
             alexaResponseMsg.response.card.content = "OK, Pressing button $button"
             tv.pressbutton(button)
-            return alexaResponseMsg            
+            return alexaResponseMsg     
+            // return
+        case "play":
+            alexaResponseMsg.response.outputSpeech.text = "OK, Playing!"
+            alexaResponseMsg.response.card.content = "OK, Playing!"
+            tv.pressbutton("play")
+            return alexaResponseMsg  
+            // return
+        case "pause":
+            alexaResponseMsg.response.outputSpeech.text = "OK, Pausing!"
+            alexaResponseMsg.response.card.content = "OK, Pausing!"
+            tv.pressbutton("pause")
+            return alexaResponseMsg  
+            // return
+        case "stop":
+            alexaResponseMsg.response.outputSpeech.text = "OK, Stopping!"
+            alexaResponseMsg.response.card.content = "OK, Stopping!"
+            tv.pressbutton("stop")
+            return alexaResponseMsg  
+            // return
+        case "exit":
+            alexaResponseMsg.response.outputSpeech.text = "OK, Exiting!"
+            alexaResponseMsg.response.card.content = "OK, Exiting!"
+            tv.pressbutton("exit")
+            return alexaResponseMsg  
+            // return                                                      
         case "AMAZON.FallbackIntent":
             alexaResponseMsg.response.outputSpeech.text = "Sorry, Television didn't recognized your command!"
             alexaResponseMsg.response.card.content = "Sorry, Television didn't recognized your command!"

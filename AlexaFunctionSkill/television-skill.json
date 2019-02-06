@@ -144,6 +144,37 @@
                     "samples": [
                         "press {button}"
                     ]
+                },
+                {
+                    "name": "play",
+                    "slots": [],
+                    "samples": [
+                        "resume",
+                        "continue",
+                        "play"
+                    ]
+                },
+                {
+                    "name": "pause",
+                    "slots": [],
+                    "samples": [
+                        "pause"
+                    ]
+                },
+                {
+                    "name": "stop",
+                    "slots": [],
+                    "samples": [
+                        "stop"
+                    ]
+                },
+                {
+                    "name": "exit",
+                    "slots": [],
+                    "samples": [
+                        "quit",
+                        "exit"
+                    ]
                 }
             ],
             "types": [
