@@ -156,12 +156,6 @@ def alexarequesthandler(reqjson){
     def number = null
     def button = null
     switch(intent){
-        case "skip":
-            alexaResponseMsg.response.outputSpeech.text = "OK, Skiping."
-            alexaResponseMsg.response.card.content = "OK, Skiping."
-            tv.ok()
-            return alexaResponseMsg
-            // return        
         case "mute":
             alexaResponseMsg.response.outputSpeech.text = "OK, Muting Television."
             alexaResponseMsg.response.card.content = "OK, Muting Television."
@@ -175,8 +169,8 @@ def alexarequesthandler(reqjson){
             return alexaResponseMsg
             // return
         case "channeldown":
-            alexaResponseMsg.response.outputSpeech.text = "OK, Channel down."
-            alexaResponseMsg.response.card.content = "OK, Channel down."
+            alexaResponseMsg.response.outputSpeech.text = "OK, Muting Television."
+            alexaResponseMsg.response.card.content = "OK, Muting Television."
             tv.channelDown()
             return alexaResponseMsg
             // return
